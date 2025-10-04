@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/debt-manager-pwa/dev-sw.js?dev-sw', { scope: '/debt-manager-pwa/', type: 'classic' })

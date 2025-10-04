@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+// Contexts
+import { ThemeProvider } from './contexts/ThemeContext';
+import { SearchProvider } from './contexts/SearchContext';
+import { NotificationProvider } from './components/NotificationSystem';
+
 // Components
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
@@ -18,18 +23,8 @@ import NotificationSystem from './components/NotificationSystem';
 import db from './lib/database';
 import firebaseSync from './lib/firebase';
 
-// PWA Service Worker registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/debt-manager-pwa/sw.js')
-      .then((registration) => {
-        console.log('SW registered: ', registration);
-      })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  });
-}
+// PWA Service Worker registration is handled by vite-plugin-pwa
+// Remove manual registration to avoid conflicts
 
 function App() {
   const { i18n } = useTranslation();
@@ -193,25 +188,45 @@ function App() {
   }
 
   return (
-    <Router basename="/debt-manager-pwa">
-      <div className="min-h-screen bg-gray-50">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/debtors" element={<DebtorsList />} />
-            <Route path="/debtor/:id" element={<DebtorDetails />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </Layout>
+    <ThemeProvider>
+      <NotificationProvider>
+        <SearchProvider>
+          <Router 
+            basename="/debt-manager-pwa"
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true
+            }}
+          >
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+              <Layout>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/debtors" element={<DebtorsList />} />
+                <Route path="/debtors/new" element={<DebtorsList />} />
+                <Route path="/debtor/:id" element={<DebtorDetails />} />
+                <Route path="/transactions/new" element={<Dashboard />} />
+                <Route path="/calculator" element={<Dashboard />} />
+                <Route path="/analytics" element={<Reports />} />
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/export" element={<Settings />} />
+                <Route path="/import" element={<Settings />} />
+                <Route path="/backup" element={<Settings />} />
+                <Route path="/sync" element={<Settings />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<Dashboard />} />
+              </Routes>
+            </Layout>
 
-        {/* Global Components */}
-        <OfflineIndicator isOnline={isOnline} />
-        <InstallPrompt deferredPrompt={deferredPrompt} setDeferredPrompt={setDeferredPrompt} />
-        <NotificationSystem />
-      </div>
-    </Router>
+            {/* Global Components */}
+            <OfflineIndicator isOnline={isOnline} />
+            <InstallPrompt deferredPrompt={deferredPrompt} setDeferredPrompt={setDeferredPrompt} />
+          </div>
+        </Router>
+        </SearchProvider>
+      </NotificationProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useNotification } from './NotificationSystem';
 import { 
   ArrowLeft, 
   Phone, 
@@ -19,18 +20,21 @@ import db from '../lib/database';
 import printManager from '../lib/printManager';
 import exportImport from '../lib/exportImport';
 import { formatCurrency, formatDate, formatRelativeTime } from '../i18n';
-import { showNotification } from './NotificationSystem';
 
 const DebtorDetails = () => {
   const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addNotification } = useNotification();
   
   const [debtor, setDebtor] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
   const [showAddTransaction, setShowAddTransaction] = useState(false);
+  const [showEditDebtor, setShowEditDebtor] = useState(false);
+  const [showEditTransaction, setShowEditTransaction] = useState(false);
+  const [editingTransaction, setEditingTransaction] = useState(null);
 
   useEffect(() => {
     if (id) {
@@ -57,7 +61,7 @@ const DebtorDetails = () => {
       
     } catch (error) {
       console.error('Failed to load debtor data:', error);
-      showNotification({
+      addNotification({
         type: 'error',
         message: t('errors.general')
       });
@@ -73,13 +77,13 @@ const DebtorDetails = () => {
       await db.deleteTransaction(transactionId);
       await loadDebtorData(); // Reload data
       
-      showNotification({
+      addNotification({
         type: 'success',
         message: t('notifications.transactionDeleted')
       });
     } catch (error) {
       console.error('Failed to delete transaction:', error);
-      showNotification({
+      addNotification({
         type: 'error',
         message: t('errors.general')
       });
@@ -91,7 +95,7 @@ const DebtorDetails = () => {
       await printManager.printDebtorStatement(id);
     } catch (error) {
       console.error('Print failed:', error);
-      showNotification({
+      addNotification({
         type: 'error',
         message: t('errors.general')
       });
@@ -101,13 +105,13 @@ const DebtorDetails = () => {
   const handleExportData = async () => {
     try {
       await exportImport.exportDebtorData(id, 'json');
-      showNotification({
+      addNotification({
         type: 'success',
         message: t('notifications.dataExported')
       });
     } catch (error) {
       console.error('Export failed:', error);
-      showNotification({
+      addNotification({
         type: 'error',
         message: t('errors.general')
       });
@@ -169,6 +173,17 @@ const DebtorDetails = () => {
         
         <div className="flex space-x-2 rtl:space-x-reverse ltr:ml-4 rtl:mr-4">
           <button
+            onClick={() => {
+              setEditingTransaction(transaction);
+              setShowEditTransaction(true);
+            }}
+            className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md"
+            title="تعديل"
+          >
+            <Edit className="h-4 w-4" />
+          </button>
+          
+          <button
             onClick={() => handleDeleteTransaction(transaction.id)}
             className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md"
             title={t('forms.delete')}
@@ -227,6 +242,14 @@ const DebtorDetails = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => setShowEditDebtor(true)}
+            className="btn btn-secondary flex items-center"
+          >
+            <Edit className="h-4 w-4 ltr:mr-2 rtl:ml-2" />
+            تعديل المدين
+          </button>
+          
           <button
             onClick={() => setShowAddTransaction(true)}
             className="btn btn-primary flex items-center"
@@ -382,14 +405,288 @@ const DebtorDetails = () => {
             setShowAddTransaction(false);
             loadDebtorData();
           }}
+          addNotification={addNotification}
+        />
+      )}
+
+      {/* Edit Debtor Modal */}
+      {showEditDebtor && (
+        <EditDebtorModal
+          debtor={debtor}
+          onClose={() => setShowEditDebtor(false)}
+          onSuccess={() => {
+            setShowEditDebtor(false);
+            loadDebtorData();
+          }}
+        />
+      )}
+
+      {/* Edit Transaction Modal */}
+      {showEditTransaction && (
+        <EditTransactionModal
+          transaction={editingTransaction}
+          onClose={() => {
+            setShowEditTransaction(false);
+            setEditingTransaction(null);
+          }}
+          onSuccess={() => {
+            setShowEditTransaction(false);
+            setEditingTransaction(null);
+            loadDebtorData();
+          }}
+          addNotification={addNotification}
         />
       )}
     </div>
   );
 };
 
+// Modal لتعديل بيانات المدين
+const EditDebtorModal = ({ debtor, onClose, onSuccess }) => {
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: debtor.name,
+    phone: debtor.phone,
+    address: debtor.address || '',
+    notes: debtor.notes || ''
+  });
+
+  const handleSubmit = async () => {
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      addNotification({
+        type: 'warning',
+        title: 'بيانات ناقصة',
+        message: t('forms.fillRequired')
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await db.updateDebtor(debtor.id, formData);
+      addNotification({
+        type: 'success',
+        title: 'تم التحديث',
+        message: 'تم تحديث بيانات المدين بنجاح'
+      });
+      onSuccess();
+    } catch (error) {
+      console.error('Failed to update debtor:', error);
+      addNotification({
+        type: 'error',
+        title: 'خطأ في التحديث',
+        message: t('errors.general')
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white dark:bg-gray-800 rounded-xl max-w-md w-full">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <h3 className="text-lg font-medium">تعديل بيانات المدين</h3>
+        </div>
+        
+        <div className="p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">الاسم *</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="input w-full"
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">رقم الهاتف *</label>
+            <input
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="input w-full"
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">العنوان</label>
+            <input
+              type="text"
+              value={formData.address}
+              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+              className="input w-full"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">ملاحظات</label>
+            <textarea
+              value={formData.notes}
+              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              className="input w-full"
+              rows={3}
+            />
+          </div>
+        </div>
+        
+        <div className="px-6 py-4 border-t border-gray-200 flex space-x-3 rtl:space-x-reverse">
+          <button
+            onClick={onClose}
+            className="btn btn-secondary flex-1"
+          >
+            إلغاء
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="btn btn-primary flex-1"
+          >
+            {loading ? 'جاري الحفظ...' : 'حفظ التغييرات'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Modal لتعديل المعاملة
+const EditTransactionModal = ({ transaction, onClose, onSuccess, addNotification }) => {
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    type: transaction.type,
+    amount: transaction.amount,
+    currency: transaction.currency || 'IQD',
+    product: transaction.product || '',
+    notes: transaction.notes || '',
+    paymentMethod: transaction.paymentMethod || 'cash'
+  });
+
+  const handleSubmit = async () => {
+    if (!formData.amount || formData.amount <= 0) {
+      addNotification({
+        type: 'warning',
+        title: 'بيانات غير صحيحة',
+        message: 'يرجى إدخال مبلغ صحيح'
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await db.updateTransaction(transaction.id, formData);
+      addNotification({
+        type: 'success',
+        title: 'تم التحديث',
+        message: 'تم تحديث المعاملة بنجاح'
+      });
+      onSuccess();
+    } catch (error) {
+      console.error('Failed to update transaction:', error);
+      addNotification({
+        type: 'error',
+        title: 'خطأ في التحديث',
+        message: t('errors.general')
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white dark:bg-gray-800 rounded-xl max-w-md w-full">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <h3 className="text-lg font-medium">تعديل المعاملة</h3>
+        </div>
+        
+        <div className="p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">نوع المعاملة</label>
+            <select
+              value={formData.type}
+              onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+              className="input w-full"
+            >
+              <option value="debt">دين</option>
+              <option value="payment">دفعة</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">المبلغ *</label>
+            <input
+              type="number"
+              value={formData.amount}
+              onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })}
+              className="input w-full"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">العملة</label>
+            <select
+              value={formData.currency}
+              onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
+              className="input w-full"
+            >
+              <option value="IQD">دينار عراقي (IQD)</option>
+              <option value="USD">دولار أمريكي (USD)</option>
+              <option value="EUR">يورو (EUR)</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">المنتج/الخدمة</label>
+            <input
+              type="text"
+              value={formData.product}
+              onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+              className="input w-full"
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium mb-2">ملاحظات</label>
+            <textarea
+              value={formData.notes}
+              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              className="input w-full"
+              rows={3}
+            />
+          </div>
+        </div>
+        
+        <div className="px-6 py-4 border-t border-gray-200 flex space-x-3 rtl:space-x-reverse">
+          <button
+            onClick={onClose}
+            className="btn btn-secondary flex-1"
+          >
+            إلغاء
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="btn btn-primary flex-1"
+          >
+            {loading ? 'جاري الحفظ...' : 'حفظ التغييرات'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Add Transaction Modal Component
-const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess }) => {
+const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess, addNotification }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     type: 'debt',
@@ -397,7 +694,8 @@ const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess }) => {
     currency: 'IQD',
     product: '',
     notes: '',
-    paymentMethod: 'cash'
+    paymentMethod: 'cash',
+    createdAt: new Date().toISOString().split('T')[0] // تاريخ اليوم افتراضياً
   });
   const [loading, setLoading] = useState(false);
 
@@ -405,7 +703,11 @@ const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess }) => {
     e.preventDefault();
     
     if (!formData.amount || parseFloat(formData.amount) <= 0) {
-      alert(t('forms.validate.positive'));
+      addNotification({
+        type: 'warning',
+        title: 'بيانات غير صحيحة',
+        message: t('forms.validate.positive')
+      });
       return;
     }
 
@@ -419,19 +721,22 @@ const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess }) => {
         currency: formData.currency,
         product: formData.product || null,
         notes: formData.notes || null,
-        paymentMethod: formData.paymentMethod
+        paymentMethod: formData.paymentMethod,
+        createdAt: formData.createdAt ? new Date(formData.createdAt).toISOString() : new Date().toISOString()
       });
 
-      showNotification({
+      addNotification({
         type: 'success',
+        title: 'تمت الإضافة بنجاح',
         message: t('notifications.transactionAdded')
       });
 
       onSuccess();
     } catch (error) {
       console.error('Failed to add transaction:', error);
-      showNotification({
+      addNotification({
         type: 'error',
+        title: 'خطأ في الإضافة',
         message: t('errors.general')
       });
     } finally {
@@ -492,6 +797,18 @@ const AddTransactionModal = ({ debtorId, debtorName, onClose, onSuccess }) => {
               <option value="USD">دولار أمريكي (USD)</option>
               <option value="EUR">يورو (EUR)</option>
             </select>
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              تاريخ المعاملة
+            </label>
+            <input
+              type="date"
+              value={formData.createdAt}
+              onChange={(e) => setFormData({ ...formData, createdAt: e.target.value })}
+              className="input"
+            />
           </div>
           
           <div>

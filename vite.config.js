@@ -10,10 +10,15 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: false // Disable in development to avoid conflicts
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
+        navigateFallback: '/debt-manager-pwa/index.html',
+        navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/, /^\/api\//],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -52,10 +57,11 @@ export default defineConfig({
         ]
       },
       includeAssets: ['favicon.ico', 'icon.svg', 'pwa-192x192.svg', 'pwa-512x512.svg'],
+      manifestFilename: 'manifest.webmanifest',
       manifest: {
-        name: 'مدير الديون - Debt Manager',
-        short_name: 'مدير الديون',
-        description: 'تطبيق إدارة الديون المتطور مع المزامنة والعمل الأوفلاين',
+        name: 'Debt Manager',
+        short_name: 'DebtManager',
+        description: 'Advanced debt management app with sync and offline capabilities',
         theme_color: '#3b82f6',
         background_color: '#ffffff',
         display: 'standalone',
@@ -66,25 +72,25 @@ export default defineConfig({
         lang: 'ar',
         icons: [
           {
-            src: 'icon.svg',
+            src: '/debt-manager-pwa/icon.svg',
             sizes: '64x64',
             type: 'image/svg+xml'
           },
           {
-            src: 'pwa-192x192.svg',
+            src: '/debt-manager-pwa/pwa-192x192.svg',
             sizes: '192x192', 
             type: 'image/svg+xml'
           },
           {
-            src: 'pwa-512x512.svg',
+            src: '/debt-manager-pwa/pwa-512x512.svg',
             sizes: '512x512',
             type: 'image/svg+xml'
           },
           {
-            src: 'pwa-512x512.svg',
+            src: '/debt-manager-pwa/pwa-512x512.svg',
             sizes: '512x512',
             type: 'image/svg+xml',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           }
         ]
       }
@@ -92,6 +98,24 @@ export default defineConfig({
   ],
   server: {
     host: true,
-    port: 3000
+    port: 3000,
+    strictPort: false,
+    hmr: {
+      port: 3001
+    },
+    fs: {
+      strict: false
+    }
+  },
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom']
+        }
+      }
+    }
   }
 })

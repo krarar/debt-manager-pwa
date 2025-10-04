@@ -24,6 +24,18 @@ export const ThemeProvider = ({ children }) => {
     return localStorage.getItem('accentColor') || 'blue';
   });
 
+  const [fontSize, setFontSize] = useState(() => {
+    return localStorage.getItem('fontSize') || 'medium';
+  });
+
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    return localStorage.getItem('sidebarCollapsed') === 'true';
+  });
+
+  const [animations, setAnimations] = useState(() => {
+    return localStorage.getItem('animations') !== 'false';
+  });
+
   useEffect(() => {
     const root = window.document.documentElement;
     
@@ -59,6 +71,35 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [accentColor]);
 
+  useEffect(() => {
+    localStorage.setItem('fontSize', fontSize);
+    const root = window.document.documentElement;
+    
+    const fontSizes = {
+      small: '14px',
+      medium: '16px',
+      large: '18px',
+      xlarge: '20px'
+    };
+    
+    root.style.setProperty('--base-font-size', fontSizes[fontSize]);
+  }, [fontSize]);
+
+  useEffect(() => {
+    localStorage.setItem('sidebarCollapsed', sidebarCollapsed.toString());
+  }, [sidebarCollapsed]);
+
+  useEffect(() => {
+    localStorage.setItem('animations', animations.toString());
+    const root = window.document.documentElement;
+    
+    if (animations) {
+      root.classList.remove('no-animations');
+    } else {
+      root.classList.add('no-animations');
+    }
+  }, [animations]);
+
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
@@ -70,12 +111,21 @@ export const ThemeProvider = ({ children }) => {
     setTheme(systemTheme);
   };
 
+  const toggleSidebar = () => setSidebarCollapsed(!sidebarCollapsed);
+
   const value = {
     theme,
     accentColor,
+    fontSize,
+    sidebarCollapsed,
+    animations,
     setTheme,
     setAccentColor,
+    setFontSize,
+    setSidebarCollapsed,
+    setAnimations,
     toggleTheme,
+    toggleSidebar,
     setLightTheme,
     setDarkTheme,
     setSystemTheme,

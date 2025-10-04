@@ -12,7 +12,6 @@
     --color-primary-500: 59 130 246;
     --color-primary-600: 37 99 235;
     --color-primary-700: 29 78 216;
-  }
 
   * {
     @apply border-gray-200;
@@ -21,14 +20,17 @@
   body {
     @apply bg-gray-50 text-gray-900;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
   }
 
   html[dir="rtl"] {
     direction: rtl;
+    font-family: 'Noto Sans Arabic', sans-serif;
   }
 
   html[dir="ltr"] {
     direction: ltr;
+    font-family: 'Inter', sans-serif;
   }
 
   /* Arabic font for RTL */
@@ -43,8 +45,19 @@
 }
 
 @layer components {
+  /* تحسين أحجام النصوص والأزرار للجوال */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center rounded-lg text-xs sm:text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+  
+  @screen sm {
+    .btn {
+      min-height: 40px;
+      padding: 10px 16px;
+    }
+  }
   }
 
   .btn-primary {
@@ -59,7 +72,7 @@
     @apply btn hover:bg-gray-100 hover:text-gray-900 px-4 py-2;
   }
 
-  .btn-danger {
+  .btn-destructive {
     @apply btn bg-red-600 text-white hover:bg-red-700 px-4 py-2;
   }
 
@@ -91,107 +104,293 @@
     @apply text-3xl font-bold text-gray-900 mb-2;
   }
 
-  .page-subtitle {
+  .page-description {
     @apply text-gray-600;
   }
 
   /* RTL specific styles */
-  html[dir="rtl"] .btn {
+  .rtl {
     @apply flex-row-reverse;
   }
 
-  html[dir="rtl"] .input {
+  .rtl-text {
     @apply text-right;
   }
 
-  /* Print styles */
-  @media print {
-    .no-print {
-      display: none !important;
-    }
-    
-    .print-only {
-      display: block !important;
-    }
-    
-    .page-break {
-      page-break-before: always;
-    }
-    
-    .print-container {
-      font-size: 12pt;
-      line-height: 1.4;
-    }
-    
-    .print-header {
-      border-bottom: 2px solid #000;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-    }
-    
-    .print-footer {
-      border-top: 1px solid #000;
-      margin-top: 20px;
-      padding-top: 10px;
-    }
+  /* Utility animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
   }
 
-  /* Thermal printer styles (80mm) */
-  @media print and (max-width: 80mm) {
-    body {
-      font-size: 10pt;
-      margin: 0;
-      padding: 5mm;
-    }
-    
-    .thermal-receipt {
-      width: 70mm;
-      font-family: 'Courier New', monospace;
-    }
-    
-    .thermal-header {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    
-    .thermal-line {
-      border-bottom: 1px dashed #000;
-      margin: 5px 0;
-    }
-    
-    .thermal-total {
-      font-weight: bold;
-      font-size: 12pt;
-    }
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
   }
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
   }
 
-  /* Loading spinner */
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s infinite;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.3) 50%,
+      transparent 100%
+    );
+    animation: progress 1.5s infinite;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  }
+
+  .gradient-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  .gradient-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .gradient-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  }
+
+  .gradient-info {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  }
+
+  /* Dark mode adaptations */
+  .dark .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+
+  .dark .input {
+    @apply bg-gray-800 border-gray-600 text-white placeholder:text-gray-400;
+  }
+
+  .dark .page-title {
+    @apply text-white;
+  }
+
+  .dark .page-description {
+    @apply text-gray-300;
+  }
+
+  /* Status indicators */
+  .status-active {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .status-inactive {
+    @apply bg-gray-100 text-gray-800 border-gray-200;
+  }
+
+  .status-warning {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+
+  .status-error {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+
+  .dark .status-active {
+    @apply bg-green-900/30 text-green-400 border-green-700;
+  }
+
+  .dark .status-inactive {
+    @apply bg-gray-800 text-gray-300 border-gray-600;
+  }
+
+  .dark .status-warning {
+    @apply bg-yellow-900/30 text-yellow-400 border-yellow-700;
+  }
+
+  .dark .status-error {
+    @apply bg-red-900/30 text-red-400 border-red-700;
+  }
+
+  /* Loading states */
   .loading-spinner {
     @apply inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite];
   }
 
-  /* Offline indicator */
-  .offline-indicator {
+  /* Update notification */
+  .update-notification {
     @apply fixed top-0 left-0 right-0 bg-yellow-500 text-white text-center py-2 z-50 transform transition-transform duration-300;
   }
 
-  .offline-indicator.hidden {
+  .update-notification.hidden {
     @apply -translate-y-full;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-2px);
+  }
+  60% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    @apply border border-gray-300 break-inside-avoid;
+  }
+  
+  .page-container {
+    @apply max-w-none px-0;
+  }
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 640px) {
+  .page-container {
+    @apply px-3 py-4;
+  }
+  
+  /* تصغير النصوص والأزرار للجوال */
+  h1 {
+    @apply text-xl;
+  }
+  
+  h2 {
+    @apply text-lg;
+  }
+  
+  h3 {
+    @apply text-base;
+  }
+  
+  .btn {
+    @apply text-xs px-2 py-1.5 min-h-8;
+  }
+  
+  .card {
+    @apply p-3;
+  }
+  
+  /* تحسين الشريط الجانبي للجوال */
+  .sidebar {
+    @apply fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out;
+  }
+  
+  .sidebar.hidden {
+    @apply -translate-x-full;
+  }
+  
+  /* تحسين الجداول للجوال */
+  table {
+    @apply text-xs;
+  }
+  
+  th, td {
+    @apply px-2 py-1;
+  }
+  
+  /* تحسين النماذج للجوال */
+  input, select, textarea {
+    @apply text-sm px-2 py-2;
+  }
+  
+  /* تحسين البطاقات للجوال */
+  .debtor-card {
+    @apply p-3 mb-3;
+  }
+  
+  /* تحسين الشبكة للجوال */
+  .grid {
+    @apply grid-cols-1 gap-3;
+  }
+}
+
+/* تحسينات للشاشات المتوسطة */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    @apply grid-cols-2 gap-4;
+  }
+  
+  .btn {
+    @apply text-sm px-3 py-2;
+  }
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1025px) {
+  .grid {
+    @apply grid-cols-3 gap-6;
+  }
+}
+
+/* Animation for notifications */
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+/* Removed misplaced rules outside of any selector or at-rule */

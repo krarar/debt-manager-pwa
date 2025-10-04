@@ -1,10 +1,22 @@
-<!-- SVG placeholder for 192x192 icon -->
-<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="192" height="192" rx="24" fill="#3b82f6"/>
-  <circle cx="96" cy="60" r="30" fill="white"/>
-  <rect x="36" y="110" width="120" height="8" rx="4" fill="white"/>
-  <rect x="36" y="130" width="80" height="8" rx="4" fill="white"/>
-  <rect x="36" y="150" width="100" height="8" rx="4" fill="white"/>
-  <circle cx="160" cy="140" r="12" fill="#10b981"/>
-  <path d="M154 140L158 144L166 136" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="url(#g1)"/>
+  <rect x="64" y="64" width="384" height="384" rx="80" fill="url(#g2)" opacity=".25"/>
+  <!-- wallet -->
+  <g>
+    <rect x="128" y="190" width="256" height="140" rx="28" fill="white" opacity="0.95"/>
+    <rect x="118" y="210" width="276" height="36" rx="18" fill="#E2E8F0"/>
+    <circle cx="350" cy="260" r="14" fill="#10B981"/>
+  </g>
+  <!-- spark -->
+  <path d="M248 340 l16 -22 l10 18 l18 -8 l-16 22 l-10 -18 z" fill="#22D3EE" opacity=".9"/>
 </svg>
