@@ -1,0 +1,86 @@
+{
+  "app": {
+    "title": "مدير الديون",
+    "subtitle": "إدارة ذكية للديون"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "debtors": "المدينون",
+    "reports": "التقارير", 
+    "settings": "الإعدادات",
+    "about": "حول التطبيق"
+  },
+  "sidebar": {
+    "quickActions": "الإجراءات السريعة"
+  },
+  "quickActions": {
+    "addDebtor": "إضافة مدين",
+    "calculate": "حاسبة",
+    "reports": "التقارير",
+    "sync": "مزامنة"
+  },
+  "colors": {
+    "blue": "أزرق",
+    "green": "أخضر",
+    "purple": "بنفسجي", 
+    "pink": "وردي",
+    "orange": "برتقالي",
+    "red": "أحمر",
+    "teal": "أزرق مخضر",
+    "indigo": "نيلي"
+  },
+  "settings": {
+    "theme": "المظهر",
+    "accentColor": "اللون المميز",
+    "language": "اللغة",
+    "sync": "المزامنة",
+    "notifications": "الإشعارات",
+    "backup": "النسخ الاحتياطي"
+  },
+  "search": {
+    "placeholder": "بحث سريع..."
+  },
+  "footer": {
+    "madeWith": "صنع بحب"
+  },
+  "dashboard": {
+    "welcome": "مرحباً بك",
+    "totalDebtors": "إجمالي المدينين",
+    "totalDebt": "إجمالي الديون",
+    "totalPaid": "إجمالي المسدد",
+    "pendingPayments": "دفعات معلقة",
+    "recentActivity": "النشاط الأخير",
+    "quickStats": "إحصائيات سريعة",
+    "overview": "نظرة عامة"
+  },
+  "debtors": {
+    "title": "قائمة المدينين",
+    "addNew": "إضافة مدين جديد",
+    "search": "البحث في المدينين",
+    "totalAmount": "المبلغ الإجمالي",
+    "paidAmount": "المبلغ المسدد",
+    "remainingAmount": "المبلغ المتبقي",
+    "lastPayment": "آخر دفعة",
+    "actions": "الإجراءات",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "viewDetails": "عرض التفاصيل",
+    "confirmDelete": "هل أنت متأكد من حذف هذا المدين؟"
+  },
+  "sync": {
+    "title": "مزامنة البيانات",
+    "status": "حالة المزامنة",
+    "lastSync": "آخر مزامنة",
+    "syncNow": "مزامنة الآن",
+    "connected": "متصل",
+    "disconnected": "غير متصل",
+    "syncing": "جاري المزامنة...",
+    "syncSuccess": "تم المزامنة بنجاح",
+    "syncError": "خطأ في المزامنة"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  }
+}
