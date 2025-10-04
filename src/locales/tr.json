@@ -1,0 +1,239 @@
+{
+  "appTitle": "Borç Yöneticisi",
+  "appDescription": "Gelişmiş Borç Yönetim Uygulaması",
+  "installApp": "Uygulamayı Yükle",
+  "navigation": {
+    "dashboard": "Ana Sayfa",
+    "debtors": "Borçlular",
+    "reports": "Raporlar",
+    "settings": "Ayarlar",
+    "about": "Hakkında"
+  },
+  "dashboard": {
+    "title": "Ana Sayfa",
+    "totalDebts": "Toplam Borçlar",
+    "totalRemaining": "Toplam Kalan",
+    "totalDebtors": "Toplam Borçlu",
+    "overdueDebts": "Geciken Borçlar",
+    "todaysDebts": "Bugünün Borçları",
+    "thisWeekDebts": "Bu Haftanın Borçları",
+    "quickSearch": "Hızlı arama...",
+    "recentActivity": "Son Aktivite",
+    "noActivity": "Son aktivite yok"
+  },
+  "debtors": {
+    "title": "Borçlular",
+    "addDebtor": "Borçlu Ekle",
+    "searchPlaceholder": "Borçlularda ara...",
+    "name": "Ad",
+    "phone": "Telefon",
+    "address": "Adres",
+    "totalDebt": "Toplam Borç",
+    "lastUpdate": "Son Güncelleme",
+    "actions": "İşlemler",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "view": "Görüntüle",
+    "noDebtors": "Borçlu bulunamadı",
+    "addFirstDebtor": "İlk borçlunuzu ekleyin",
+    "filters": {
+      "all": "Tümü",
+      "overdue": "Geciken",
+      "recent": "Son",
+      "highAmount": "Yüksek Tutar"
+    }
+  },
+  "debtor": {
+    "details": "Borçlu Detayları",
+    "personalInfo": "Kişisel Bilgiler",
+    "debtHistory": "Borç Geçmişi",
+    "addDebt": "Borç Ekle",
+    "makePayment": "Ödeme Yap",
+    "printReceipt": "Makbuz Yazdır",
+    "exportData": "Veri Dışa Aktar",
+    "notes": "Notlar",
+    "createdAt": "Oluşturma Tarihi",
+    "updatedAt": "Son Güncelleme",
+    "totalBalance": "Toplam Bakiye",
+    "transactions": "İşlemler",
+    "noTransactions": "İşlem bulunamadı"
+  },
+  "transaction": {
+    "type": "Tip",
+    "amount": "Tutar",
+    "currency": "Para Birimi",
+    "date": "Tarih",
+    "product": "Ürün/Öğe",
+    "notes": "Notlar",
+    "paymentMethod": "Ödeme Yöntemi",
+    "types": {
+      "debt": "Borç",
+      "payment": "Ödeme"
+    },
+    "paymentMethods": {
+      "cash": "Nakit",
+      "card": "Kart",
+      "transfer": "Transfer",
+      "check": "Çek"
+    }
+  },
+  "forms": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "update": "Güncelle",
+    "confirm": "Onayla",
+    "required": "Gerekli",
+    "optional": "İsteğe Bağlı",
+    "validate": {
+      "required": "Bu alan gereklidir",
+      "minLength": "En az {min} karakter olmalıdır",
+      "maxLength": "{max} karakterden az olmalıdır",
+      "number": "Sayı olmalıdır",
+      "positive": "Pozitif bir sayı olmalıdır",
+      "phone": "Geçersiz telefon numarası"
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "direction": "Yön",
+    "currency": "Varsayılan Para Birimi",
+    "dateFormat": "Tarih Formatı",
+    "sync": "Senkronizasyon",
+    "backup": "Yedekleme",
+    "printing": "Yazdırma",
+    "factoryReset": "Fabrika Ayarları",
+    "languages": {
+      "ar": "العربية",
+      "en": "English",
+      "ku": "کوردی",
+      "tr": "Türkçe",
+      "fa": "فارسی"
+    },
+    "directions": {
+      "auto": "Otomatik",
+      "rtl": "Sağdan Sola",
+      "ltr": "Soldan Sağa"
+    },
+    "currencies": {
+      "IQD": "Irak Dinarı",
+      "USD": "ABD Doları",
+      "EUR": "Euro",
+      "TRY": "Türk Lirası",
+      "IRR": "İran Riyali"
+    },
+    "dateFormats": {
+      "dd/MM/yyyy": "GG/AA/YYYY",
+      "MM/dd/yyyy": "AA/GG/YYYY",
+      "yyyy-MM-dd": "YYYY-AA-GG"
+    },
+    "syncSettings": {
+      "enable": "Senkronizasyonu Etkinleştir",
+      "disable": "Senkronizasyonu Devre Dışı Bırak",
+      "syncNow": "Şimdi Senkronize Et",
+      "syncOnStartup": "Başlangıçta Senkronize Et",
+      "lastSync": "Son Senkronizasyon",
+      "never": "Hiçbir Zaman",
+      "syncing": "Senkronize Ediliyor...",
+      "syncSuccess": "Senkronizasyon başarılı",
+      "syncError": "Senkronizasyon başarısız"
+    },
+    "backupSettings": {
+      "export": "Veri Dışa Aktar",
+      "import": "Veri İçe Aktar",
+      "exportAll": "Tüm Verileri Dışa Aktar",
+      "exportDebtor": "Tek Borçluyu Dışa Aktar",
+      "selectFile": "Dosya Seç",
+      "importSuccess": "İçe aktarma başarılı",
+      "importError": "İçe aktarma başarısız"
+    },
+    "printSettings": {
+      "businessName": "İş Adı",
+      "businessPhone": "İş Telefonu",
+      "logo": "Logo",
+      "header": "Fatura Başlığı",
+      "footer": "Fatura Alt Bilgisi"
+    },
+    "resetSettings": {
+      "title": "Fabrika Ayarları",
+      "warning": "Uyarı: Bu tüm verileri kalıcı olarak silecektir",
+      "confirm": "Emin misiniz?",
+      "confirmText": "Onaylamak için 'SİL' yazın",
+      "reset": "Sıfırla",
+      "success": "Sıfırlama başarılı"
+    }
+  },
+  "reports": {
+    "title": "Raporlar",
+    "dateRange": "Tarih Aralığı",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "generate": "Rapor Oluştur",
+    "export": "Dışa Aktar",
+    "print": "Yazdır",
+    "summary": "Özet",
+    "details": "Detaylar",
+    "totalDebts": "Toplam Yeni Borçlar",
+    "totalPayments": "Toplam Ödemeler",
+    "netChange": "Net Değişim",
+    "debtorCount": "Aktif Borçlular"
+  },
+  "print": {
+    "receipt": "Makbuz",
+    "invoice": "Fatura",
+    "statement": "Ekstre",
+    "report": "Rapor",
+    "date": "Tarih",
+    "amount": "Tutar",
+    "balance": "Bakiye",
+    "signature": "İmza",
+    "thanksNote": "İş birliğiniz için teşekkürler"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "search": "Ara",
+    "filter": "Filtre",
+    "sort": "Sırala",
+    "date": "Tarih",
+    "amount": "Tutar",
+    "total": "Toplam",
+    "balance": "Bakiye",
+    "status": "Durum",
+    "actions": "İşlemler",
+    "noData": "Veri yok",
+    "offline": "Çevrimdışı",
+    "online": "Çevrimiçi"
+  },
+  "errors": {
+    "general": "Beklenmeyen bir hata oluştu",
+    "network": "Ağ hatası",
+    "notFound": "Bulunamadı",
+    "validation": "Doğrulama hatası",
+    "permission": "İzin reddedildi",
+    "storage": "Depolama hatası",
+    "sync": "Senkronizasyon hatası"
+  },
+  "notifications": {
+    "debtorAdded": "Borçlu başarıyla eklendi",
+    "debtorUpdated": "Borçlu başarıyla güncellendi",
+    "debtorDeleted": "Borçlu başarıyla silindi",
+    "transactionAdded": "İşlem başarıyla eklendi",
+    "dataExported": "Veri başarıyla dışa aktarıldı",
+    "dataImported": "Veri başarıyla içe aktarıldı",
+    "settingsSaved": "Ayarlar başarıyla kaydedildi"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "appTitle": "مدیریت بدهی",
+  "appDescription": "اپلیکیشن پیشرفته مدیریت بدهی",
+  "installApp": "نصب اپلیکیشن",
+  "navigation": {
+    "dashboard": "داشبورد",
+    "debtors": "بدهکاران",
+    "reports": "گزارش‌ها",
+    "settings": "تنظیمات",
+    "about": "درباره"
+  },
+  "dashboard": {
+    "title": "داشبورد",
+    "totalDebts": "کل بدهی‌ها",
+    "totalRemaining": "کل باقی‌مانده",
+    "totalDebtors": "تعداد بدهکاران",
+    "overdueDebts": "بدهی‌های عقب‌افتاده",
+    "todaysDebts": "بدهی‌های امروز",
+    "thisWeekDebts": "بدهی‌های این هفته",
+    "quickSearch": "جستجوی سریع...",
+    "recentActivity": "فعالیت‌های اخیر",
+    "noActivity": "فعالیت اخیری وجود ندارد"
+  },
+  "debtors": {
+    "title": "بدهکاران",
+    "addDebtor": "افزودن بدهکار",
+    "searchPlaceholder": "جستجو در بدهکاران...",
+    "name": "نام",
+    "phone": "تلفن",
+    "address": "آدرس",
+    "totalDebt": "کل بدهی",
+    "lastUpdate": "آخرین به‌روزرسانی",
+    "actions": "عملیات",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "view": "مشاهده",
+    "noDebtors": "بدهکاری یافت نشد",
+    "addFirstDebtor": "اولین بدهکار خود را اضافه کنید",
+    "filters": {
+      "all": "همه",
+      "overdue": "عقب‌افتاده",
+      "recent": "اخیر",
+      "highAmount": "مبلغ بالا"
+    }
+  },
+  "debtor": {
+    "details": "جزئیات بدهکار",
+    "personalInfo": "اطلاعات شخصی",
+    "debtHistory": "تاریخچه بدهی",
+    "addDebt": "افزودن بدهی",
+    "makePayment": "پرداخت",
+    "printReceipt": "چاپ رسید",
+    "exportData": "صادرات داده",
+    "notes": "یادداشت‌ها",
+    "createdAt": "تاریخ ایجاد",
+    "updatedAt": "آخرین به‌روزرسانی",
+    "totalBalance": "کل موجودی",
+    "transactions": "تراکنش‌ها",
+    "noTransactions": "تراکنشی یافت نشد"
+  },
+  "transaction": {
+    "type": "نوع",
+    "amount": "مبلغ",
+    "currency": "ارز",
+    "date": "تاریخ",
+    "product": "محصول/کالا",
+    "notes": "یادداشت‌ها",
+    "paymentMethod": "روش پرداخت",
+    "types": {
+      "debt": "بدهی",
+      "payment": "پرداخت"
+    },
+    "paymentMethods": {
+      "cash": "نقد",
+      "card": "کارت",
+      "transfer": "انتقال",
+      "check": "چک"
+    }
+  },
+  "forms": {
+    "save": "ذخیره",
+    "cancel": "لغو",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "add": "افزودن",
+    "update": "به‌روزرسانی",
+    "confirm": "تأیید",
+    "required": "ضروری",
+    "optional": "اختیاری",
+    "validate": {
+      "required": "این فیلد ضروری است",
+      "minLength": "باید حداقل {min} کاراکتر باشد",
+      "maxLength": "باید کمتر از {max} کاراکتر باشد",
+      "number": "باید عدد باشد",
+      "positive": "باید عدد مثبت باشد",
+      "phone": "شماره تلفن نامعتبر"
+    }
+  },
+  "settings": {
+    "title": "تنظیمات",
+    "language": "زبان",
+    "direction": "جهت",
+    "currency": "ارز پیش‌فرض",
+    "dateFormat": "قالب تاریخ",
+    "sync": "همگام‌سازی",
+    "backup": "پشتیبان‌گیری",
+    "printing": "چاپ",
+    "factoryReset": "بازنشانی کارخانه",
+    "languages": {
+      "ar": "العربية",
+      "en": "English",
+      "ku": "کوردی",
+      "tr": "Türkçe",
+      "fa": "فارسی"
+    },
+    "directions": {
+      "auto": "خودکار",
+      "rtl": "راست به چپ",
+      "ltr": "چپ به راست"
+    },
+    "currencies": {
+      "IQD": "دینار عراق",
+      "USD": "دلار آمریکا",
+      "EUR": "یورو",
+      "TRY": "لیر ترکیه",
+      "IRR": "ریال ایران"
+    },
+    "dateFormats": {
+      "dd/MM/yyyy": "روز/ماه/سال",
+      "MM/dd/yyyy": "ماه/روز/سال",
+      "yyyy-MM-dd": "سال-ماه-روز"
+    },
+    "syncSettings": {
+      "enable": "فعال‌سازی همگام‌سازی",
+      "disable": "غیرفعال‌سازی همگام‌سازی",
+      "syncNow": "همگام‌سازی اکنون",
+      "syncOnStartup": "همگام‌سازی در شروع",
+      "lastSync": "آخرین همگام‌سازی",
+      "never": "هرگز",
+      "syncing": "در حال همگام‌سازی...",
+      "syncSuccess": "همگام‌سازی موفق",
+      "syncError": "خطا در همگام‌سازی"
+    },
+    "backupSettings": {
+      "export": "صادرات داده",
+      "import": "وارد کردن داده",
+      "exportAll": "صادرات تمام داده‌ها",
+      "exportDebtor": "صادرات یک بدهکار",
+      "selectFile": "انتخاب فایل",
+      "importSuccess": "وارد کردن موفق",
+      "importError": "خطا در وارد کردن"
+    },
+    "printSettings": {
+      "businessName": "نام کسب‌وکار",
+      "businessPhone": "تلفن کسب‌وکار",
+      "logo": "لوگو",
+      "header": "سربرگ فاکتور",
+      "footer": "پاورقی فاکتور"
+    },
+    "resetSettings": {
+      "title": "بازنشانی کارخانه",
+      "warning": "هشدار: این عمل تمام داده‌ها را برای همیشه حذف می‌کند",
+      "confirm": "آیا مطمئن هستید؟",
+      "confirmText": "برای تأیید 'حذف' بنویسید",
+      "reset": "بازنشانی",
+      "success": "بازنشانی موفق"
+    }
+  },
+  "reports": {
+    "title": "گزارش‌ها",
+    "dateRange": "بازه تاریخ",
+    "from": "از",
+    "to": "تا",
+    "generate": "تولید گزارش",
+    "export": "صادرات",
+    "print": "چاپ",
+    "summary": "خلاصه",
+    "details": "جزئیات",
+    "totalDebts": "کل بدهی‌های جدید",
+    "totalPayments": "کل پرداخت‌ها",
+    "netChange": "تغییر خالص",
+    "debtorCount": "بدهکاران فعال"
+  },
+  "print": {
+    "receipt": "رسید",
+    "invoice": "فاکتور",
+    "statement": "صورتحساب",
+    "report": "گزارش",
+    "date": "تاریخ",
+    "amount": "مبلغ",
+    "balance": "موجودی",
+    "signature": "امضا",
+    "thanksNote": "از همکاری شما سپاسگزاریم"
+  },
+  "common": {
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "success": "موفقیت",
+    "warning": "هشدار",
+    "info": "اطلاعات",
+    "yes": "بله",
+    "no": "خیر",
+    "ok": "تأیید",
+    "close": "بستن",
+    "back": "برگشت",
+    "next": "بعدی",
+    "previous": "قبلی",
+    "search": "جستجو",
+    "filter": "فیلتر",
+    "sort": "مرتب‌سازی",
+    "date": "تاریخ",
+    "amount": "مبلغ",
+    "total": "مجموع",
+    "balance": "موجودی",
+    "status": "وضعیت",
+    "actions": "عملیات",
+    "noData": "داده‌ای موجود نیست",
+    "offline": "آفلاین",
+    "online": "آنلاین"
+  },
+  "errors": {
+    "general": "خطای غیرمنتظره‌ای رخ داد",
+    "network": "خطای شبکه",
+    "notFound": "یافت نشد",
+    "validation": "خطای اعتبارسنجی",
+    "permission": "دسترسی رد شد",
+    "storage": "خطای ذخیره‌سازی",
+    "sync": "خطای همگام‌سازی"
+  },
+  "notifications": {
+    "debtorAdded": "بدهکار با موفقیت اضافه شد",
+    "debtorUpdated": "بدهکار با موفقیت به‌روزرسانی شد",
+    "debtorDeleted": "بدهکار با موفقیت حذف شد",
+    "transactionAdded": "تراکنش با موفقیت اضافه شد",
+    "dataExported": "داده با موفقیت صادر شد",
+    "dataImported": "داده با موفقیت وارد شد",
+    "settingsSaved": "تنظیمات با موفقیت ذخیره شد"
+  }
+}

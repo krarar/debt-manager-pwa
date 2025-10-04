@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/debt-manager-pwa/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="description" content="تطبيق إدارة الديون المتطور مع المزامنة والعمل الأوفلاين" />
+    <meta name="keywords" content="debt management, إدارة الديون, PWA, offline, مدير الديون" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/debt-manager-pwa/manifest.webmanifest" />
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/debt-manager-pwa/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/debt-manager-pwa/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/debt-manager-pwa/pwa-512x512.png" />
+    
+    <!-- iOS Specific Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="مدير الديون" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="مدير الديون - Debt Manager" />
+    <meta property="og:description" content="تطبيق إدارة الديون المتطور مع المزامنة والعمل الأوفلاين" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/debt-manager-pwa/pwa-512x512.png" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="مدير الديون - Debt Manager" />
+    <meta name="twitter:description" content="تطبيق إدارة الديون المتطور مع المزامنة والعمل الأوفلاين" />
+    <meta name="twitter:image" content="/debt-manager-pwa/pwa-512x512.png" />
+    
+    <title>مدير الديون - Debt Manager</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Offline fallback page -->
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>يتطلب JavaScript</h1>
+        <p>يجب تفعيل JavaScript لتشغيل هذا التطبيق.</p>
+        <hr>
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to run this application.</p>
+      </div>
+    </noscript>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

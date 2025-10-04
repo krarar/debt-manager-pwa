@@ -1,0 +1,298 @@
+{
+  "appTitle": "Debt Manager",
+  "appDescription": "Advanced Debt Management Application",
+  "installApp": "Install App",
+  "navigation": {
+    "dashboard": "Dashboard",
+    "debtors": "Debtors",
+    "reports": "Reports",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalDebts": "Total Debts",
+    "totalRemaining": "Total Remaining",
+    "totalDebtors": "Total Debtors",
+    "overdueDebts": "Overdue Debts",
+    "todaysDebts": "Today's Debts",
+    "thisWeekDebts": "This Week's Debts",
+    "quickSearch": "Quick search...",
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity"
+  },
+  "debtors": {
+    "title": "Debtors",
+    "addDebtor": "Add Debtor",
+    "searchPlaceholder": "Search debtors...",
+    "name": "Name",
+    "phone": "Phone",
+    "address": "Address",
+    "totalDebt": "Total Debt",
+    "lastUpdate": "Last Update",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "noDebtors": "No debtors found",
+    "addFirstDebtor": "Add your first debtor",
+    "filters": {
+      "all": "All",
+      "overdue": "Overdue",
+      "recent": "Recent",
+      "highAmount": "High Amount"
+    }
+  },
+  "debtor": {
+    "details": "Debtor Details",
+    "personalInfo": "Personal Information",
+    "debtHistory": "Debt History",
+    "addDebt": "Add Debt",
+    "makePayment": "Make Payment",
+    "printReceipt": "Print Receipt",
+    "exportData": "Export Data",
+    "notes": "Notes",
+    "createdAt": "Created At",
+    "updatedAt": "Last Updated",
+    "totalBalance": "Total Balance",
+    "transactions": "Transactions",
+    "noTransactions": "No transactions found"
+  },
+  "transaction": {
+    "type": "Type",
+    "amount": "Amount",
+    "currency": "Currency",
+    "date": "Date",
+    "product": "Product/Item",
+    "notes": "Notes",
+    "paymentMethod": "Payment Method",
+    "types": {
+      "debt": "Debt",
+      "payment": "Payment"
+    },
+    "paymentMethods": {
+      "cash": "Cash",
+      "card": "Card",
+      "transfer": "Transfer",
+      "check": "Check"
+    }
+  },
+  "forms": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "update": "Update",
+    "confirm": "Confirm",
+    "required": "Required",
+    "optional": "Optional",
+    "validate": {
+      "required": "This field is required",
+      "minLength": "Must be at least {min} characters",
+      "maxLength": "Must be less than {max} characters",
+      "number": "Must be a number",
+      "positive": "Must be a positive number",
+      "phone": "Invalid phone number"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "direction": "Direction",
+    "currency": "Default Currency",
+    "dateFormat": "Date Format",
+    "sync": "Synchronization",
+    "backup": "Backup",
+    "printing": "Printing",
+    "factoryReset": "Factory Reset",
+    "languages": {
+      "ar": "العربية",
+      "en": "English",
+      "ku": "کوردی",
+      "tr": "Türkçe",
+      "fa": "فارسی"
+    },
+    "directions": {
+      "auto": "Auto",
+      "rtl": "Right to Left",
+      "ltr": "Left to Right"
+    },
+    "currencies": {
+      "IQD": "Iraqi Dinar",
+      "USD": "US Dollar",
+      "EUR": "Euro",
+      "TRY": "Turkish Lira",
+      "IRR": "Iranian Rial"
+    },
+    "dateFormats": {
+      "dd/MM/yyyy": "DD/MM/YYYY",
+      "MM/dd/yyyy": "MM/DD/YYYY",
+      "yyyy-MM-dd": "YYYY-MM-DD"
+    },
+    "syncSettings": {
+      "enable": "Enable Sync",
+      "disable": "Disable Sync",
+      "syncNow": "Sync Now",
+      "syncOnStartup": "Sync on Startup",
+      "lastSync": "Last Sync",
+      "never": "Never",
+      "syncing": "Syncing...",
+      "syncSuccess": "Sync successful",
+      "syncError": "Sync failed"
+    },
+    "backupSettings": {
+      "export": "Export Data",
+      "import": "Import Data",
+      "exportAll": "Export All Data",
+      "exportDebtor": "Export Single Debtor",
+      "selectFile": "Select File",
+      "importSuccess": "Import successful",
+      "importError": "Import failed"
+    },
+    "printSettings": {
+      "businessName": "Business Name",
+      "businessPhone": "Business Phone",
+      "logo": "Logo",
+      "header": "Invoice Header",
+      "footer": "Invoice Footer"
+    },
+    "resetSettings": {
+      "title": "Factory Reset",
+      "warning": "Warning: This will permanently delete all data",
+      "confirm": "Are you sure?",
+      "confirmText": "Type 'DELETE' to confirm",
+      "reset": "Reset",
+      "success": "Reset successful"
+    }
+  },
+  "reports": {
+    "title": "Reports",
+    "dateRange": "Date Range",
+    "from": "From",
+    "to": "To",
+    "generate": "Generate Report",
+    "export": "Export",
+    "print": "Print",
+    "summary": "Summary",
+    "details": "Details",
+    "totalDebts": "Total New Debts",
+    "totalPayments": "Total Payments",
+    "netChange": "Net Change",
+    "debtorCount": "Active Debtors"
+  },
+  "print": {
+    "receipt": "Receipt",
+    "invoice": "Invoice",
+    "statement": "Statement",
+    "report": "Report",
+    "date": "Date",
+    "amount": "Amount",
+    "balance": "Balance",
+    "signature": "Signature",
+    "thanksNote": "Thank you for your business"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "date": "Date",
+    "amount": "Amount",
+    "total": "Total",
+    "balance": "Balance",
+    "status": "Status",
+    "actions": "Actions",
+    "noData": "No data available",
+    "offline": "Offline",
+    "online": "Online"
+  },
+  "errors": {
+    "general": "An unexpected error occurred",
+    "network": "Network error",
+    "notFound": "Not found",
+    "validation": "Validation error",
+    "permission": "Permission denied",
+    "storage": "Storage error",
+    "sync": "Sync error"
+  },
+  "notifications": {
+    "debtorAdded": "Debtor added successfully",
+    "debtorUpdated": "Debtor updated successfully",
+    "debtorDeleted": "Debtor deleted successfully",
+    "transactionAdded": "Transaction added successfully",
+    "dataExported": "Data exported successfully",
+    "dataImported": "Data imported successfully",
+    "settingsSaved": "Settings saved successfully"
+  },
+  "about": {
+    "version": "Version",
+    "status": {
+      "stable": "Stable"
+    },
+    "features": {
+      "title": "Features",
+      "pwa": {
+        "title": "Progressive Web App",
+        "description": "Installable and works offline"
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Support for 5 languages with RTL/LTR"
+      },
+      "offline": {
+        "title": "Works Offline",
+        "description": "All features available without internet"
+      },
+      "sync": {
+        "title": "Cloud Sync",
+        "description": "Optional synchronization with Firebase"
+      }
+    },
+    "technologies": {
+      "title": "Technologies Used"
+    },
+    "developer": {
+      "title": "Developer",
+      "description": "This app was developed with love for the community"
+    },
+    "contact": {
+      "email": "Contact us"
+    },
+    "system": {
+      "title": "System Information",
+      "browser": "Browser",
+      "userAgent": "User Agent",
+      "language": "Language",
+      "online": "Connection",
+      "support": "Support",
+      "supported": "Supported",
+      "notSupported": "Not Supported",
+      "installed": "Installed",
+      "browserMode": "Browser Mode"
+    },
+    "license": {
+      "title": "License",
+      "description": "This app is open source and available to everyone",
+      "copyright": "All rights reserved © 2024",
+      "openSource": "Licensed under MIT License"
+    },
+    "footer": {
+      "madeWith": "Made with",
+      "for": "for",
+      "community": "the community",
+      "allRights": "All rights reserved"
+    }
+  }
+}

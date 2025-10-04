@@ -1,0 +1,298 @@
+{
+  "appTitle": "مدير الديون",
+  "appDescription": "تطبيق إدارة الديون المتطور",
+  "installApp": "تثبيت التطبيق",
+  "navigation": {
+    "dashboard": "لوحة التحكم",
+    "debtors": "المدينون",
+    "reports": "التقارير",
+    "settings": "الإعدادات",
+    "about": "حول التطبيق"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "totalDebts": "إجمالي الديون",
+    "totalRemaining": "إجمالي المتبقي",
+    "totalDebtors": "عدد المدينين",
+    "overdueDebts": "الديون المتأخرة",
+    "todaysDebts": "ديون اليوم",
+    "thisWeekDebts": "ديون هذا الأسبوع",
+    "quickSearch": "البحث السريع...",
+    "recentActivity": "النشاط الأخير",
+    "noActivity": "لا يوجد نشاط حديث"
+  },
+  "debtors": {
+    "title": "المدينون",
+    "addDebtor": "إضافة مدين",
+    "searchPlaceholder": "البحث في المدينين...",
+    "name": "الاسم",
+    "phone": "الهاتف",
+    "address": "العنوان",
+    "totalDebt": "إجمالي الدين",
+    "lastUpdate": "آخر تحديث",
+    "actions": "الإجراءات",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "view": "عرض",
+    "noDebtors": "لا يوجد مدينون",
+    "addFirstDebtor": "أضف أول مدين لك",
+    "filters": {
+      "all": "الكل",
+      "overdue": "المتأخرون",
+      "recent": "الأحدث",
+      "highAmount": "الأعلى مبلغاً"
+    }
+  },
+  "debtor": {
+    "details": "تفاصيل المدين",
+    "personalInfo": "المعلومات الشخصية",
+    "debtHistory": "سجل الديون",
+    "addDebt": "إضافة دين",
+    "makePayment": "تسديد دفعة",
+    "printReceipt": "طباعة إيصال",
+    "exportData": "تصدير البيانات",
+    "notes": "ملاحظات",
+    "createdAt": "تاريخ الإنشاء",
+    "updatedAt": "آخر تحديث",
+    "totalBalance": "الرصيد الإجمالي",
+    "transactions": "المعاملات",
+    "noTransactions": "لا توجد معاملات"
+  },
+  "transaction": {
+    "type": "النوع",
+    "amount": "المبلغ",
+    "currency": "العملة",
+    "date": "التاريخ",
+    "product": "المنتج/المادة",
+    "notes": "ملاحظات",
+    "paymentMethod": "طريقة الدفع",
+    "types": {
+      "debt": "دين",
+      "payment": "سداد"
+    },
+    "paymentMethods": {
+      "cash": "نقداً",
+      "card": "بطاقة",
+      "transfer": "تحويل",
+      "check": "شيك"
+    }
+  },
+  "forms": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "update": "تحديث",
+    "confirm": "تأكيد",
+    "required": "مطلوب",
+    "optional": "اختياري",
+    "validate": {
+      "required": "هذا الحقل مطلوب",
+      "minLength": "يجب أن يكون على الأقل {min} أحرف",
+      "maxLength": "يجب أن يكون أقل من {max} حرف",
+      "number": "يجب أن يكون رقماً",
+      "positive": "يجب أن يكون رقماً موجباً",
+      "phone": "رقم هاتف غير صحيح"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "direction": "الاتجاه",
+    "currency": "العملة الافتراضية",
+    "dateFormat": "تنسيق التاريخ",
+    "sync": "المزامنة",
+    "backup": "النسخ الاحتياطي",
+    "printing": "الطباعة",
+    "factoryReset": "إعادة ضبط المصنع",
+    "languages": {
+      "ar": "العربية",
+      "en": "English",
+      "ku": "کوردی",
+      "tr": "Türkçe",
+      "fa": "فارسی"
+    },
+    "directions": {
+      "auto": "تلقائي",
+      "rtl": "من اليمين لليسار",
+      "ltr": "من اليسار لليمين"
+    },
+    "currencies": {
+      "IQD": "دينار عراقي",
+      "USD": "دولار أمريكي",
+      "EUR": "يورو",
+      "TRY": "ليرة تركية",
+      "IRR": "ريال إيراني"
+    },
+    "dateFormats": {
+      "dd/MM/yyyy": "يوم/شهر/سنة",
+      "MM/dd/yyyy": "شهر/يوم/سنة",
+      "yyyy-MM-dd": "سنة-شهر-يوم"
+    },
+    "syncSettings": {
+      "enable": "تفعيل المزامنة",
+      "disable": "إيقاف المزامنة",
+      "syncNow": "مزامنة الآن",
+      "syncOnStartup": "مزامنة عند البدء",
+      "lastSync": "آخر مزامنة",
+      "never": "لم تتم أبداً",
+      "syncing": "جارِ المزامنة...",
+      "syncSuccess": "تمت المزامنة بنجاح",
+      "syncError": "خطأ في المزامنة"
+    },
+    "backupSettings": {
+      "export": "تصدير البيانات",
+      "import": "استيراد البيانات",
+      "exportAll": "تصدير جميع البيانات",
+      "exportDebtor": "تصدير مدين واحد",
+      "selectFile": "اختر ملف",
+      "importSuccess": "تم الاستيراد بنجاح",
+      "importError": "خطأ في الاستيراد"
+    },
+    "printSettings": {
+      "businessName": "اسم النشاط",
+      "businessPhone": "هاتف النشاط",
+      "logo": "الشعار",
+      "header": "ترويسة الفاتورة",
+      "footer": "تذييل الفاتورة"
+    },
+    "resetSettings": {
+      "title": "إعادة ضبط المصنع",
+      "warning": "تحذير: سيتم حذف جميع البيانات نهائياً",
+      "confirm": "هل أنت متأكد؟",
+      "confirmText": "اكتب 'حذف' للتأكيد",
+      "reset": "إعادة ضبط",
+      "success": "تم إعادة الضبط بنجاح"
+    }
+  },
+  "reports": {
+    "title": "التقارير",
+    "dateRange": "فترة التقرير",
+    "from": "من",
+    "to": "إلى",
+    "generate": "إنشاء التقرير",
+    "export": "تصدير",
+    "print": "طباعة",
+    "summary": "الملخص",
+    "details": "التفاصيل",
+    "totalDebts": "إجمالي الديون الجديدة",
+    "totalPayments": "إجمالي المدفوعات",
+    "netChange": "صافي التغيير",
+    "debtorCount": "عدد المدينين النشطين"
+  },
+  "print": {
+    "receipt": "إيصال",
+    "invoice": "فاتورة",
+    "statement": "كشف حساب",
+    "report": "تقرير",
+    "date": "التاريخ",
+    "amount": "المبلغ",
+    "balance": "الرصيد",
+    "signature": "التوقيع",
+    "thanksNote": "شكراً لتعاملكم معنا"
+  },
+  "common": {
+    "loading": "جارِ التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "warning": "تحذير",
+    "info": "معلومة",
+    "yes": "نعم",
+    "no": "لا",
+    "ok": "موافق",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "search": "بحث",
+    "filter": "فلتر",
+    "sort": "ترتيب",
+    "date": "التاريخ",
+    "amount": "المبلغ",
+    "total": "الإجمالي",
+    "balance": "الرصيد",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "noData": "لا توجد بيانات",
+    "offline": "غير متصل بالإنترنت",
+    "online": "متصل بالإنترنت"
+  },
+  "errors": {
+    "general": "حدث خطأ غير متوقع",
+    "network": "خطأ في الشبكة",
+    "notFound": "غير موجود",
+    "validation": "خطأ في التحقق",
+    "permission": "ليس لديك صلاحية",
+    "storage": "خطأ في التخزين",
+    "sync": "خطأ في المزامنة"
+  },
+  "notifications": {
+    "debtorAdded": "تم إضافة المدين بنجاح",
+    "debtorUpdated": "تم تحديث المدين بنجاح",
+    "debtorDeleted": "تم حذف المدين بنجاح",
+    "transactionAdded": "تم إضافة المعاملة بنجاح",
+    "dataExported": "تم تصدير البيانات بنجاح",
+    "dataImported": "تم استيراد البيانات بنجاح",
+    "settingsSaved": "تم حفظ الإعدادات بنجاح"
+  },
+  "about": {
+    "version": "الإصدار",
+    "status": {
+      "stable": "مستقر"
+    },
+    "features": {
+      "title": "المميزات",
+      "pwa": {
+        "title": "تطبيق ويب تقدمي",
+        "description": "قابل للتثبيت ويعمل أوفلاين"
+      },
+      "multilingual": {
+        "title": "متعدد اللغات",
+        "description": "دعم 5 لغات مع RTL/LTR"
+      },
+      "offline": {
+        "title": "يعمل أوفلاين",
+        "description": "جميع الوظائف متاحة بدون إنترنت"
+      },
+      "sync": {
+        "title": "المزامنة السحابية",
+        "description": "مزامنة اختيارية مع Firebase"
+      }
+    },
+    "technologies": {
+      "title": "التقنيات المستخدمة"
+    },
+    "developer": {
+      "title": "المطور",
+      "description": "تم تطوير هذا التطبيق بحب من أجل المجتمع"
+    },
+    "contact": {
+      "email": "راسلنا"
+    },
+    "system": {
+      "title": "معلومات النظام",
+      "browser": "المتصفح",
+      "userAgent": "وكيل المستخدم",
+      "language": "اللغة",
+      "online": "الاتصال",
+      "support": "الدعم",
+      "supported": "مدعوم",
+      "notSupported": "غير مدعوم",
+      "installed": "مثبت",
+      "browserMode": "وضع المتصفح"
+    },
+    "license": {
+      "title": "الترخيص",
+      "description": "هذا التطبيق مفتوح المصدر ومتاح للجميع",
+      "copyright": "جميع الحقوق محفوظة © 2024",
+      "openSource": "مرخص تحت رخصة MIT"
+    },
+    "footer": {
+      "madeWith": "صُنع بـ",
+      "for": "من أجل",
+      "community": "المجتمع",
+      "allRights": "جميع الحقوق محفوظة"
+    }
+  }
+}

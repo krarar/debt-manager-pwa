@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غير متصل - مدير الديون</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            direction: rtl;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .features {
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .english {
+            direction: ltr;
+            text-align: center;
+        }
+
+        .english .features {
+            text-align: left;
+        }
+
+        .english .feature {
+            flex-direction: row-reverse;
+        }
+
+        .english .feature-icon {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">EN</button>
+    
+    <div class="container" id="content">
+        <div class="icon">📱</div>
+        <h1>أنت غير متصل بالإنترنت</h1>
+        <p>لا يمكن الوصول إلى الإنترنت حالياً. يمكنك الاستمرار في استخدام التطبيق بالبيانات المحفوظة محلياً.</p>
+        
+        <button class="btn" onclick="tryReconnect()">المحاولة مرة أخرى</button>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>عرض البيانات المحفوظة</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>إضافة ديون وسدادات جديدة</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <span>المزامنة عند العودة للإنترنت</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+        
+        const content = {
+            ar: {
+                title: 'أنت غير متصل بالإنترنت',
+                description: 'لا يمكن الوصول إلى الإنترنت حالياً. يمكنك الاستمرار في استخدام التطبيق بالبيانات المحفوظة محلياً.',
+                button: 'المحاولة مرة أخرى',
+                features: [
+                    'عرض البيانات المحفوظة',
+                    'إضافة ديون وسدادات جديدة', 
+                    'المزامنة عند العودة للإنترنت'
+                ]
+            },
+            en: {
+                title: 'You are offline',
+                description: 'Cannot access the internet currently. You can continue using the app with locally saved data.',
+                button: 'Try Again',
+                features: [
+                    'View saved data',
+                    'Add new debts and payments',
+                    'Sync when back online'
+                ]
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            updateContent();
+            
+            const body = document.body;
+            const container = document.getElementById('content');
+            const toggleBtn = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'en') {
+                body.style.direction = 'ltr';
+                container.classList.add('english');
+                toggleBtn.textContent = 'ع';
+                toggleBtn.style.left = 'auto';
+                toggleBtn.style.right = '20px';
+            } else {
+                body.style.direction = 'rtl';
+                container.classList.remove('english');
+                toggleBtn.textContent = 'EN';
+                toggleBtn.style.right = 'auto';
+                toggleBtn.style.left = '20px';
+            }
+        }
+
+        function updateContent() {
+            const data = content[currentLang];
+            const container = document.getElementById('content');
+            
+            container.innerHTML = `
+                <div class="icon">📱</div>
+                <h1>${data.title}</h1>
+                <p>${data.description}</p>
+                
+                <button class="btn" onclick="tryReconnect()">${data.button}</button>
+                
+                <div class="features">
+                    ${data.features.map(feature => `
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>${feature}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function tryReconnect() {
+            if (navigator.onLine) {
+                window.location.href = '/debt-manager-pwa/';
+            } else {
+                // Show temporary message
+                const btn = document.querySelector('.btn');
+                const originalText = btn.textContent;
+                btn.textContent = currentLang === 'ar' ? 'لا يزال غير متصل...' : 'Still offline...';
+                btn.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#3b82f6';
+                }, 2000);
+            }
+        }
+
+        // Check connection status
+        window.addEventListener('online', function() {
+            window.location.href = '/debt-manager-pwa/';
+        });
+
+        // Auto-retry every 30 seconds
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.href = '/debt-manager-pwa/';
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

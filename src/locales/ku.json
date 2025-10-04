@@ -1,0 +1,239 @@
+{
+  "appTitle": "بەڕێوەبەری قەرز",
+  "appDescription": "بەرنامەی پێشکەوتووی بەڕێوەبردنی قەرز",
+  "installApp": "دامەزراندنی بەرنامە",
+  "navigation": {
+    "dashboard": "سەرەتا",
+    "debtors": "قەرزاران",
+    "reports": "ڕاپۆرتەکان",
+    "settings": "ڕێکخستنەکان",
+    "about": "دەربارە"
+  },
+  "dashboard": {
+    "title": "سەرەتا",
+    "totalDebts": "کۆی قەرزەکان",
+    "totalRemaining": "کۆی ماوە",
+    "totalDebtors": "ژمارەی قەرزاران",
+    "overdueDebts": "قەرزە دواکەوتووەکان",
+    "todaysDebts": "قەرزەکانی ئەمڕۆ",
+    "thisWeekDebts": "قەرزەکانی ئەم هەفتەیە",
+    "quickSearch": "گەڕانی خێرا...",
+    "recentActivity": "چالاکی نوێ",
+    "noActivity": "هیچ چالاکی نوێیەک نییە"
+  },
+  "debtors": {
+    "title": "قەرزاران",
+    "addDebtor": "زیادکردنی قەرزار",
+    "searchPlaceholder": "گەڕان لە قەرزاران...",
+    "name": "ناو",
+    "phone": "تەلەفۆن",
+    "address": "ناونیشان",
+    "totalDebt": "کۆی قەرز",
+    "lastUpdate": "دوا نوێکردنەوە",
+    "actions": "کردارەکان",
+    "edit": "دەستکاری",
+    "delete": "سڕینەوە",
+    "view": "بینین",
+    "noDebtors": "هیچ قەرزارێک نەدۆزرایەوە",
+    "addFirstDebtor": "یەکەم قەرزارت زیاد بکە",
+    "filters": {
+      "all": "هەموو",
+      "overdue": "دواکەوتوو",
+      "recent": "نوێ",
+      "highAmount": "بڕی زۆر"
+    }
+  },
+  "debtor": {
+    "details": "وردەکاری قەرزار",
+    "personalInfo": "زانیاری کەسی",
+    "debtHistory": "مێژووی قەرز",
+    "addDebt": "زیادکردنی قەرز",
+    "makePayment": "پارەدان",
+    "printReceipt": "چاپکردنی وەصڵ",
+    "exportData": "ناردنی دەرەوەی داتا",
+    "notes": "تێبینیەکان",
+    "createdAt": "بەرواری دروستکردن",
+    "updatedAt": "دوا نوێکردنەوە",
+    "totalBalance": "کۆی باڵانس",
+    "transactions": "مامەڵەکان",
+    "noTransactions": "هیچ مامەڵەیەک نەدۆزرایەوە"
+  },
+  "transaction": {
+    "type": "جۆر",
+    "amount": "بڕ",
+    "currency": "دراو",
+    "date": "بەروار",
+    "product": "بەرهەم/شت",
+    "notes": "تێبینیەکان",
+    "paymentMethod": "شێوازی پارەدان",
+    "types": {
+      "debt": "قەرز",
+      "payment": "پارەدان"
+    },
+    "paymentMethods": {
+      "cash": "نەقد",
+      "card": "کارت",
+      "transfer": "گواستنەوە",
+      "check": "چێک"
+    }
+  },
+  "forms": {
+    "save": "پاشەکەوتکردن",
+    "cancel": "هەڵوەشاندنەوە",
+    "delete": "سڕینەوە",
+    "edit": "دەستکاری",
+    "add": "زیادکردن",
+    "update": "نوێکردنەوە",
+    "confirm": "پشتڕاستکردنەوە",
+    "required": "پێویست",
+    "optional": "ئیختیاری",
+    "validate": {
+      "required": "ئەم خانەیە پێویستە",
+      "minLength": "دەبێت لانیکەم {min} پیت بێت",
+      "maxLength": "دەبێت کەمتر لە {max} پیت بێت",
+      "number": "دەبێت ژمارە بێت",
+      "positive": "دەبێت ژمارەی ئەرێنی بێت",
+      "phone": "ژمارەی تەلەفۆن هەڵەیە"
+    }
+  },
+  "settings": {
+    "title": "ڕێکخستنەکان",
+    "language": "زمان",
+    "direction": "ئاراستە",
+    "currency": "دراوی بنەڕەت",
+    "dateFormat": "شێوازی بەروار",
+    "sync": "هاوڕێژی",
+    "backup": "هەڵگرتنەوە",
+    "printing": "چاپکردن",
+    "factoryReset": "گەڕاندنەوەی سەرەتایی",
+    "languages": {
+      "ar": "العربية",
+      "en": "English",
+      "ku": "کوردی",
+      "tr": "Türkçe",
+      "fa": "فارسی"
+    },
+    "directions": {
+      "auto": "خۆکار",
+      "rtl": "لە ڕاستەوە بۆ چەپ",
+      "ltr": "لە چەپەوە بۆ ڕاست"
+    },
+    "currencies": {
+      "IQD": "دیناری عێراقی",
+      "USD": "دۆلاری ئەمەریکی",
+      "EUR": "یۆرۆ",
+      "TRY": "لیرەی تورکی",
+      "IRR": "ڕیاڵی ئێرانی"
+    },
+    "dateFormats": {
+      "dd/MM/yyyy": "ڕۆژ/مانگ/ساڵ",
+      "MM/dd/yyyy": "مانگ/ڕۆژ/ساڵ",
+      "yyyy-MM-dd": "ساڵ-مانگ-ڕۆژ"
+    },
+    "syncSettings": {
+      "enable": "چالاککردنی هاوڕێژی",
+      "disable": "ناچالاککردنی هاوڕێژی",
+      "syncNow": "ئێستا هاوڕێژی بکە",
+      "syncOnStartup": "هاوڕێژی لە دەستپێکردن",
+      "lastSync": "دوا هاوڕێژی",
+      "never": "هەرگیز",
+      "syncing": "هاوڕێژی دەکرێت...",
+      "syncSuccess": "هاوڕێژی سەرکەوتووبوو",
+      "syncError": "هەڵەی هاوڕێژی"
+    },
+    "backupSettings": {
+      "export": "ناردنی دەرەوەی داتا",
+      "import": "هێنانەناوەی داتا",
+      "exportAll": "ناردنی هەموو داتاکان",
+      "exportDebtor": "ناردنی قەرزارێک",
+      "selectFile": "فایل هەڵبژێرە",
+      "importSuccess": "هێنانەناوە سەرکەوتووبوو",
+      "importError": "هەڵەی هێنانەناوە"
+    },
+    "printSettings": {
+      "businessName": "ناوی کار",
+      "businessPhone": "تەلەفۆنی کار",
+      "logo": "لۆگۆ",
+      "header": "سەری فاتوورە",
+      "footer": "بنی فاتوورە"
+    },
+    "resetSettings": {
+      "title": "گەڕاندنەوەی سەرەتایی",
+      "warning": "ئاگاداری: هەموو داتاکان بە تەواوی دەسڕدرێنەوە",
+      "confirm": "دڵنیایت؟",
+      "confirmText": "'سڕینەوە' بنووسە بۆ پشتڕاستکردنەوە",
+      "reset": "گەڕاندنەوە",
+      "success": "گەڕاندنەوە سەرکەوتووبوو"
+    }
+  },
+  "reports": {
+    "title": "ڕاپۆرتەکان",
+    "dateRange": "ماوەی بەروار",
+    "from": "لە",
+    "to": "بۆ",
+    "generate": "دروستکردنی ڕاپۆرت",
+    "export": "ناردنی دەرەوە",
+    "print": "چاپکردن",
+    "summary": "پوختە",
+    "details": "وردەکاریەکان",
+    "totalDebts": "کۆی قەرزە نوێیەکان",
+    "totalPayments": "کۆی پارەدانەکان",
+    "netChange": "گۆڕانی ناو",
+    "debtorCount": "ژمارەی قەرزارە چالاکەکان"
+  },
+  "print": {
+    "receipt": "وەصڵ",
+    "invoice": "فاتوورە",
+    "statement": "کشانەوە",
+    "report": "ڕاپۆرت",
+    "date": "بەروار",
+    "amount": "بڕ",
+    "balance": "باڵانس",
+    "signature": "واژوو",
+    "thanksNote": "سوپاس بۆ مامەڵەتان لەگەڵمان"
+  },
+  "common": {
+    "loading": "بارکردن...",
+    "error": "هەڵە",
+    "success": "سەرکەوتن",
+    "warning": "ئاگاداری",
+    "info": "زانیاری",
+    "yes": "بەڵێ",
+    "no": "نا",
+    "ok": "باشە",
+    "close": "داخستن",
+    "back": "گەڕانەوە",
+    "next": "داهاتوو",
+    "previous": "پێشوو",
+    "search": "گەڕان",
+    "filter": "فلتەر",
+    "sort": "ڕیزکردن",
+    "date": "بەروار",
+    "amount": "بڕ",
+    "total": "کۆ",
+    "balance": "باڵانس",
+    "status": "دۆخ",
+    "actions": "کردارەکان",
+    "noData": "هیچ داتایەک نییە",
+    "offline": "دەرهێڵ",
+    "online": "سەرهێڵ"
+  },
+  "errors": {
+    "general": "هەڵەیەکی نەخوازراو ڕوویدا",
+    "network": "هەڵەی تۆڕ",
+    "notFound": "نەدۆزرایەوە",
+    "validation": "هەڵەی پشتڕاستکردنەوە",
+    "permission": "دەسەڵات نییە",
+    "storage": "هەڵەی هەڵگرتن",
+    "sync": "هەڵەی هاوڕێژی"
+  },
+  "notifications": {
+    "debtorAdded": "قەرزار بە سەرکەوتووی زیادکرا",
+    "debtorUpdated": "قەرزار بە سەرکەوتووی نوێکرایەوە",
+    "debtorDeleted": "قەرزار بە سەرکەوتووی سڕایەوە",
+    "transactionAdded": "مامەڵە بە سەرکەوتووی زیادکرا",
+    "dataExported": "داتا بە سەرکەوتووی نێردرایە دەرەوە",
+    "dataImported": "داتا بە سەرکەوتووی هێنرایە ناوەوە",
+    "settingsSaved": "ڕێکخستنەکان بە سەرکەوتووی پاشەکەوتکران"
+  }
+}
